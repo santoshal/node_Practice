@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  navbarOpen:boolean=false;
   title = 'nodePracticeAngular';
+
+  toggleNavbar() {
+    this.navbarOpen = !this.navbarOpen;
+  }
 }
