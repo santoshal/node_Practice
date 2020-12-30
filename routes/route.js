@@ -5,6 +5,9 @@ module.exports = (app) => {
     //get Details  
     router.get("/", nodePractController.getDetails);
 
+     //get Details  
+     router.get("/user/:id", nodePractController.getUserDetails);
+
     //Insert Data
     router.post("/post", nodePractController.postDetails);
 

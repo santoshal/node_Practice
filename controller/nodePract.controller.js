@@ -12,13 +12,25 @@ exports.getDetails = (req, res) => {
     })
 }
 
+exports.getUserDetails=(req, res)=>{
+    let userid=req.params.id;  
+     values=[userid]
+    let sql = "select * from users where id=?";
+    connection.query(sql,values,(err, rows, fields) => {
+        if (err) { throw err; }
+        else { res.send(rows); }
+
+    })
+
+}
+
 //Post Query
 //http://localhost:8080/api/post
 exports.postDetails = (req, res) => {
-    let uname = req.body.uname;
-    let umail = req.body.umail;
-    let upass = req.body.upass;
-    let rid = req.body.rid;
+    let uname = req.body.name;
+    let umail = req.body.email;
+    let upass = req.body.password;
+    let rid = 2;
 
     let sql = "insert into users (username,email,password,roleid) values (?,?,?,?)";
     var values = [uname, umail, upass, rid];
