@@ -12,7 +12,7 @@ module.exports = (app) => {
     router.post("/post", nodePractController.postDetails);
 
     //Update Data
-    router.put("/put", nodePractController.updateDetails);
+    router.put("/put/:id", nodePractController.updateDetails);
 
     //Delete Data
     router.delete("/delete/:id", nodePractController.deleteDetails);

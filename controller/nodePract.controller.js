@@ -16,9 +16,9 @@ exports.getUserDetails=(req, res)=>{
     let userid=req.params.id;  
      values=[userid]
     let sql = "select * from users where id=?";
-    connection.query(sql,values,(err, rows, fields) => {
+    connection.query(sql,values,(err, row, fields) => {
         if (err) { throw err; }
-        else { res.send(rows); }
+        else { res.send(row); }
 
     })
 
@@ -37,7 +37,7 @@ exports.postDetails = (req, res) => {
 
     connection.query(sql, values, (err, rows) => {
         if (err) { throw err; }
-        else { res.send(rows); }
+        else { res.json(rows); }
     })
 
 }
@@ -45,8 +45,8 @@ exports.postDetails = (req, res) => {
 //Update Query
 //http://localhost:8080/api/put
 exports.updateDetails = (req, res) => {
-    let uname = req.body.uname;
-    let id = req.body.id;
+    let uname = req.body.name;
+    let id = req.params.id;
 
     let sql = "update users set username=? where id=?";
     var values = [uname, id];
@@ -62,6 +62,7 @@ exports.updateDetails = (req, res) => {
 //http://localhost:8080/api/delete/:id
 exports.deleteDetails = (req, res) => {
     let id = req.params.id;
+    
     let sql = "delete from users where id=?";
     var values = [id];
 
