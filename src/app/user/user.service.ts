@@ -25,5 +25,9 @@ export class UserService {
     return this.http.get("http://localhost:8080/api/user/"+id);
   }
 
+  updateUser(id:any,user:any){
+    return this.http.put("http://localhost:8080/api/put/"+id,user)
+  }
+
 
 }
